@@ -3,18 +3,31 @@ import "./App.css"
 
 
 function App(){
-   const [count, setCount] = useState(1000);
+   const [count, setCount] = useState(() => {
+    const savedCount = localStorage.getItem("newCount");
+    return savedCount !== null ? parseInt(savedCount, 10) : 1000;
+  });
+
+  // Save to localStorage whenever count changes
+  useEffect(() => {
+    localStorage.setItem("newCount", count);
+  }, [count]);
+
+
 
    const increase = () => {
     setCount(count + 1);
+    // saveCount();
    }
    const decrease = () => {
     if(count > 1000){
     setCount(count - 1);
+    // saveCount();
     }
    }
    const reset = () => {
     setCount(1000);
+    // saveCount();
    }
 
    
