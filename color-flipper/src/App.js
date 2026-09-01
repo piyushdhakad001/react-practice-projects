@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 
-function App(){
+function App() {
   const [color, setColor] = useState("rgb(128, 128, 128)")
 
   useEffect(() => {
     const savedColor = localStorage.getItem("bgColor");
-    if(savedColor){
+    if (savedColor) {
       setColor(savedColor);
     }
-  })
-  
+  }, [])
+
   const getRandomColor = () => {
     const r = Math.floor(Math.random() * 255);
     const g = Math.floor(Math.random() * 255);
@@ -26,7 +26,7 @@ function App(){
   }
 
   return (
-    <div className="container" style={{background: color}}>
+    <div className="container" style={{ background: color }}>
       <p className="color-text" >Background-color: {color} </p>
       <button className="click-button" onClick={handleClick}>Click me</button>
     </div>
