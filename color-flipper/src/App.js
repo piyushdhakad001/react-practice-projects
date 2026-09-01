@@ -27,7 +27,7 @@ function App(){
 
   return (
     <div className="container" style={{background: color}}>
-      <p className="colortext" >Background-color: {color} </p>
+      <p className="color-text" >Background-color: {color} </p>
       <button className="click-button" onClick={handleClick}>Click me</button>
     </div>
   )
