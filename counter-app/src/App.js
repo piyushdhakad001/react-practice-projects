@@ -3,7 +3,19 @@ import "./App.css"
 
 
 function App(){
-   const [count, setCount] = useState(1000)
+   const [count, setCount] = useState(1000);
+
+   const increase = () => {
+    setCount(count + 1);
+   }
+   const decrease = () => {
+    if(count > 1000){
+    setCount(count - 1);
+    }
+   }
+   const reset = () => {
+    setCount(1000);
+   }
 
    
    
