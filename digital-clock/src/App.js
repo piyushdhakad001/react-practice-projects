@@ -11,7 +11,7 @@ function App() {
     }
 
     const interval = setInterval(updateTime, 1000)
-    
+    return () => clearInterval(interval)
   }, [])
 
 
