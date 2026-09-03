@@ -1,0 +1,47 @@
+*{
+  margin: 0;
+  padding: 0;
+  /* font-family: Impact; */
+  color: rgb(3, 151, 151);
+  font-family: monospace;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(0, 0, 0);
+}
+
+.digital-clock{
+  font-size: 50px;
+  margin-top: 100px;
+  
+}
+.time{
+  font-size: xxx-large;
+  border: 2px solid;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+  
+}
+
+@media(min-width: 800px){
+  .digital-clock{
+  font-size: 60px;
+  }
+  .time{
+    font-size: 40px
+  }
+
+}
+
+@media(max-width: 500px){
+  .digital-clock{
+  font-size: 30px;
+  }
+  .time{
+    font-size: 20px
+  }
+
+}
