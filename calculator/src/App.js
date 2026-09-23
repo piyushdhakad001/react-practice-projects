@@ -1,30 +1,60 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "./App.css";
 
 function App() {
   const [value, setValue] = useState("");
+  const [result, setResult] = useState("");
 
   const handleButtonClick = (event) => {
     const clickedValue = event.target.textContent;
 
+    // Numbers
     if ("0123456789".includes(clickedValue)) {
       setValue((previousValue) => previousValue + clickedValue);
     }
 
+    // Operators
     if (["+", "×", "−", "÷"].includes(clickedValue)) {
       setValue((previousValue) => previousValue + clickedValue);
     }
 
+    // Clear
     if (clickedValue === "C") {
       setValue("");
+      setResult("");
     }
   };
 
+  useEffect(() => {
+    if (!value) {
+      setResult("");
+      return;
+    }
+
+    try {
+      const expression = value
+        .replaceAll("×", "*")
+        .replaceAll("÷", "/")
+        .replaceAll("−", "-");
+
+      const answer = eval(expression);
+
+      setResult(answer);
+    } catch {
+      setResult("");
+    }
+  }, [value]);
+
   return (
     <div className="container">
+
       <div className="input-box">
         {value}
+      </div>
+
+      <div className="live-calculation-box">
+        {result}
       </div>
 
       <div
@@ -59,6 +89,7 @@ function App() {
           <button className="button">=</button>
         </p>
       </div>
+
     </div>
   );
 }
