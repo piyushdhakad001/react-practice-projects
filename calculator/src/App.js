@@ -5,6 +5,7 @@ import "./App.css";
 function App() {
   const [value, setValue] = useState("");
   const [result, setResult] = useState("");
+  const [history, setHistory] = useState([]);
 
   const handleButtonClick = (event) => {
     const clickedValue = event.target.textContent;
@@ -46,6 +47,15 @@ function App() {
     }
   }, [value]);
 
+  const handleEqualButton = () => {
+    if (!value || !result) return;
+
+    setHistory((previousHistory) => [
+      ...previousHistory,
+      value + " = " + result
+    ]);
+  };
+
   return (
     <div className="container">
 
@@ -86,8 +96,22 @@ function App() {
           <button className="button">0</button>
           <button className="button">C</button>
           <button className="button">+</button>
-          <button className="button">=</button>
+
+          <button
+            className="button"
+            onClick={handleEqualButton}
+          >
+            =
+          </button>
         </p>
+      </div>
+
+      <div className="history-box">
+        {history.map((calculation, index) => (
+          <div className="history-item" key={index}>
+            {calculation}
+          </div>
+        ))}
       </div>
 
     </div>
