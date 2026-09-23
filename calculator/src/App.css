@@ -1,0 +1,32 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  display: flex;
+  justify-content: center;
+  background-color: rgb(166, 166, 166);
+}
+
+.container{
+  border: 2px solid ;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.input-screen-box{
+  border: 1px solid;
+}
+
+.input-box{
+  border: 1px solid;
+  height: 35px;
+  
+}
+
+
+
+button{
+  margin: 0px 10px 0px 10px;
+  padding: 10px;
+}
+
