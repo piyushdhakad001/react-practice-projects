@@ -56,6 +56,10 @@ function App() {
     ]);
   };
 
+  const handleClearHistory = () => {
+    setHistory([]);
+  };
+
   return (
     <div className="container">
 
@@ -113,6 +117,13 @@ function App() {
           </div>
         ))}
       </div>
+
+      <button
+        className="clear-history-button"
+        onClick={handleClearHistory}
+      >
+        Clear History
+      </button>
 
     </div>
   );
